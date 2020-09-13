@@ -1,0 +1,13 @@
+---
+- name: Playbook to create user, group and assigning user into a group
+  hosts: web
+  tasks:
+    - name: Create a group called dba
+      group:
+        name: dba
+        state: present
+    - name: Crerate a user and assign it to dba group
+      user:
+        name: John
+        state: present
+        groups: dba  
